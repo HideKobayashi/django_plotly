@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+{% load django_bootstrap5 %}
+<html>
+    <head>
+        <metacharset="utf8">
+        <title>Plotly Example</title>
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+        <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+        {% block extraheader %}{% endblock %}
+    </head>
+    <body>
+        <nav class="navbar navbar-expand flex-md-row navbar-dark bg-dark">
+            <div class="container justify-content-between">
+                <a href="/" class="navbar-brand">Plotly Example</a>
+                <ul class="navbar-nav mr-md-2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'plotly' %}">plotly</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <main>
+            <div class="container">
+                {% block main %}{% endblock %}
+            </div>
+        </main>
+    </body>
+</html>

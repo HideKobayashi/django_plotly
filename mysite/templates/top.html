@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block main %}
+<div class="welcome">
+    <h1 class="title">ようこそPlotlyExampleへ！</h1>
+    <p class="subtitle">Plotlyで何ができるか見てみよう</p>
+    <a class="btn btn-primary" href="{% url 'plotly' %}">plotlyを見る</a>
+</div>
+<form class="" action="{% url 'top' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>項目</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+            <tr>
+                {% if item in checked_list %}
+                <th><input type="checkbox" name="office" value="{{item}}" checked="true"> {{item}}</th>
+                {% else %}
+                <th><input type="checkbox" name="office" value="{{item}}"> {{item}}</th>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>       
+    </table>
+    <input type="submit" name="button" value="送信">
+    <h2>{{ message }}</h2>
+</form>
+{% endblock %}

@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',  # 追記
+    'django_bootstrap5',  # 追記
 ]
 
 MIDDLEWARE = [

@@ -16,8 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include  # include を追記
 from django.views.generic.base import RedirectView
+from app.views import TopView
 
 urlpatterns = [
+    # path('', include(('app.urls', 'app'), namespace='app', )),  # 追記
+    path('', TopView.as_view(), name='top'),
+    path('plotly/', include('app.urls')),
     path('admin/', admin.site.urls),
-    path('', include(('app.urls', 'app'), namespace='app', )),  # 追記
 ]

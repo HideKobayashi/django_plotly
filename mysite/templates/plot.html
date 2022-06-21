@@ -1,8 +1,10 @@
-{% block head %}
+{% extends "base.html" %}
+
+{% block extraheader %}
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 {% endblock %}
 
-{% block content %}
+{% block main %}
 <div class="title"><h1>Plotlyのグラフを描画</h1></div>
 <div class="graph">{{ plot|safe }}</div>
 {% endblock %}

@@ -10,11 +10,10 @@ MEDIA_ROOT = Path(settings.BASE_DIR) / 'media'
 
 class FileDownloadView(TemplateView):
     template_name = "fdlapp/filedownload.html"
-    file_path_list = list(MEDIA_ROOT.glob("*"))
-    file_path_list.sort(key=os.path.getmtime, reverse=True)
-    # filelist = [x.name for x in file_path_list]
 
     def get_context_data(self, **kwargs):
+        self.file_path_list = list(MEDIA_ROOT.glob("*"))
+        self.file_path_list.sort(key=os.path.getmtime, reverse=True)
         filelist = self.file_path_list
         context = super(FileDownloadView, self).get_context_data(**kwargs)
         context["filelist"] = filelist

@@ -5,6 +5,7 @@
     <h2 class="title">File download</h2>
     <subtitle>どれか一つを選んでください。</subtitle>
 </div>
+{% if filelist %}
 <form class="" action="{% url 'download' %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <table class="table">
@@ -27,4 +28,7 @@
     </table>
     <input type="submit" name="button" value="ダウンロード">
 </form>
+{% else %}
+    <p>ダウンロード可能なファイルがありません。</p>
+{% endif %}
 {% endblock %}

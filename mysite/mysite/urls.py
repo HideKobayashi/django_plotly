@@ -21,6 +21,7 @@ from app.views import TopView
 urlpatterns = [
     # path('', include(('app.urls', 'app'), namespace='app', )),  # 追記
     path('', TopView.as_view(), name='top'),
-    path('plotly/', include('app.urls')),
+    path('plotly/', include('app.urls')),  # 追記
+    path('fdl/', include('fdlapp.urls')),  # 追記
     path('admin/', admin.site.urls),
 ]

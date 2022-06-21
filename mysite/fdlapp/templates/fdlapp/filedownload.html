@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="welcome">
+    <h2 class="title">File download</h2>
+    <subtitle>どれか一つを選んでください。</subtitle>
+</div>
+<form class="" action="{% url 'download' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>項目</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for file in filelist %}
+            <tr>
+                {% if file in checked_list %}
+                <th><input type="radio" name="form_radio" value="{{file.name}}" checked> {{file.name}}</th>
+                {% else %}
+                <th><input type="radio" name="form_radio" value="{{file.name}}"> {{file.name}}</th>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>       
+    </table>
+    <input type="submit" name="button" value="ダウンロード">
+</form>
+{% endblock %}

@@ -1,8 +1,6 @@
 from django.shortcuts import render
-
 from django.views.generic import TemplateView
 import plotly.graph_objects as go
-
 
 
 def line_charts():

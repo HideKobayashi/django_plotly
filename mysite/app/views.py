@@ -6,7 +6,8 @@ import plotly.graph_objects as go
 def line_charts():
     fig = go.Figure(
         go.Scatter(x=[1, 2, 3], y=[3, 5, 2]),
-        layout=go.Layout(width=400, height=400),
+        # layout=go.Layout(width=400, height=400),
+        layout=go.Layout(),
     )
     return fig.to_html(include_plotlyjs=False)
 
@@ -23,7 +24,8 @@ class TopView(TemplateView):
     template_name = "top.html"
 
     def get_context_data(self, **kwargs):
-        context = super(TopView, self).get_context_data(**kwargs)
+        # context = super(TopView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context["items"] = ["52", "53", "54"]
         context["checked_list"] = ["52"]
         context["message"] = 'Get'

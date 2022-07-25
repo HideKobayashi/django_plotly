@@ -6,5 +6,15 @@
 
 {% block main %}
 <div class="title"><h1>Plotlyのグラフを描画</h1></div>
+<h2>Line chart</h2>
 <div class="graph">{{ plot|safe }}</div>
+
+<h2>Bar chart</h2>
+<div class="graph">{{ plot1|safe }}</div>
+
+<h2>Histograms</h2>
+<div class="graph">{{ plot2|safe }}</div>
+
+<h2>Bar</h2>
+<div class="graph">{{ plot3|safe }}</div>
 {% endblock %}
